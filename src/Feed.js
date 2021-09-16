@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import "./Feed.css";
 import CreateIcon from "@material-ui/icons/Create";
 import ImageIcon from "@material-ui/icons/Image";
@@ -8,9 +8,21 @@ import CalendarViewDayIcon from "@material-ui/icons/CalendarViewDay";
 
 import InputOption from "./InputOption";
 import Post from "./Post";
+// import { db } from "./firebase";
 
 function Feed() {
   const [posts, setPosts] = useState([]);
+
+  // useEffect(() => {
+  //   db.collection("posts").onSnapshot((snapshot) => {
+  //     setPosts(
+  //       snapshot.docs.map((doc) => ({
+  //         id: doc.id,
+  //         data: doc.data(),
+  //       }))
+  //     );
+  //   });
+  // }, []);
 
   const sendPost = (e) => {
     e.preventDefault();
